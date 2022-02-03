@@ -77,4 +77,5 @@ transition-all
 border-none
 bg-transparent
 cursor-pointer
+overflow-hidden
 `;

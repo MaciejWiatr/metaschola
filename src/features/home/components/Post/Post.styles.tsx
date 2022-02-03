@@ -10,6 +10,9 @@ export const PostCard = tw.div`
 	border-solid
 	dark:bg-gray-800
 	dark:border-gray-700
+	bg-opacity-50
+	dark:bg-opacity-50
+	backdrop-blur
 `;
 
 export const UserImg = tw.img`

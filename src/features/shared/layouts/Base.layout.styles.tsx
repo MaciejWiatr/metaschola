@@ -1,6 +1,6 @@
 import tw from "twin.macro";
 
-export const HomePageLayout = tw.div`
+export const BaseLayout = tw.div`
     bg-gray-100 w-full h-full min-h-screen
     px-[5vw] box-border text-gray-800
     dark:bg-gray-900
@@ -8,6 +8,6 @@ export const HomePageLayout = tw.div`
     dark:bg-opacity-90
 `;
 
-export const HomeContainer = tw.div`
+export const BaseContainer = tw.div`
     mx-auto h-full w-full max-w-6xl flex gap-4
 `;

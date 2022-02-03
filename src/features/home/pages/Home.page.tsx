@@ -1,15 +1,11 @@
-import AdditionalInfo from "../components/AdditionalInfo";
-import Aside from "../components/Aside";
 import Main from "../components/Main";
-import HomeLayout from "../layouts/Home.layout";
+import { BaseLayout } from "$features/shared";
 
 const HomePage = () => {
 	return (
-		<HomeLayout>
-			<Aside />
+		<BaseLayout>
 			<Main />
-			<AdditionalInfo />
-		</HomeLayout>
+		</BaseLayout>
 	);
 };
 

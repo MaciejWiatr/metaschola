@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;700&display=swap");
-
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
 * {
 	box-sizing: border-box;
 }
@@ -21,4 +21,21 @@ code {
 
 #root {
 	min-height: 100vh;
+}
+
+.slide-enter {
+	transform: translateY(50px);
+}
+.slide-enter-active {
+	transform: translateY(0px);
+}
+.slide-exit {
+	transform: translateY(0px);
+}
+.slide-exit-active {
+	transform: translateY(-50px);
+}
+.slide-enter-active,
+.slide-exit-active {
+	transition: all 0.35s;
 }

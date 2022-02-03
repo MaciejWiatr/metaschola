@@ -27,6 +27,7 @@ import {
 	ListItemText,
 	UserImg,
 } from "./Aside.styles";
+import { SwitchTransition, CSSTransition } from "react-transition-group";
 
 const Aside = () => {
 	const { toggle, isDark } = useDark();
@@ -110,7 +111,21 @@ const Aside = () => {
 			<AsideSpacer />
 			<AsideUserContainer>
 				<DarkModeButton onClick={toggle}>
-					{isDark ? <BsMoonStars /> : <BsSun />}
+					<SwitchTransition>
+						<CSSTransition
+							key={JSON.stringify(isDark)}
+							addEndListener={(node, done) =>
+								node.addEventListener(
+									"transitionend",
+									done,
+									false
+								)
+							}
+							classNames="slide"
+						>
+							{isDark ? <BsMoonStars /> : <BsSun />}
+						</CSSTransition>
+					</SwitchTransition>
 				</DarkModeButton>
 				<AsideIconLink href="/settings">
 					<BsGear />

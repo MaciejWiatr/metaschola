@@ -4,6 +4,8 @@ export const HomePageLayout = tw.div`
     bg-gray-100 w-full h-full min-h-screen
     px-[5vw] box-border text-gray-800
     dark:bg-gray-900
+    bg-opacity-95
+    dark:bg-opacity-90
 `;
 
 export const HomeContainer = tw.div`

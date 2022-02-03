@@ -1,3 +1,4 @@
+import useDark from "$features/shared/hooks/useDark";
 import { AiOutlineUser } from "react-icons/ai";
 import {
 	BsEmojiLaughing,
@@ -6,6 +7,8 @@ import {
 	BsCalendarEvent,
 	BsCalendar4Week,
 	BsGear,
+	BsMoonStars,
+	BsSun,
 } from "react-icons/bs";
 import Logo from "../Logo";
 import {
@@ -14,6 +17,7 @@ import {
 	AsideSpacer,
 	AsideTitle,
 	AsideUserContainer,
+	DarkModeButton,
 	HomeAside,
 	Hr,
 	ListHeader,
@@ -25,6 +29,8 @@ import {
 } from "./Aside.styles";
 
 const Aside = () => {
+	const { toggle, isDark } = useDark();
+
 	return (
 		<HomeAside>
 			<AsideTitle>
@@ -103,6 +109,9 @@ const Aside = () => {
 			</AsideList>
 			<AsideSpacer />
 			<AsideUserContainer>
+				<DarkModeButton onClick={toggle}>
+					{isDark ? <BsMoonStars /> : <BsSun />}
+				</DarkModeButton>
 				<AsideIconLink href="/settings">
 					<BsGear />
 				</AsideIconLink>

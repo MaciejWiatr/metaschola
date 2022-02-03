@@ -9,6 +9,9 @@ body {
 	font-family: "Inter", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+	background-image: url("/bg.jpg");
+	background-attachment: fixed;
+	background-size: cover;
 }
 
 code {

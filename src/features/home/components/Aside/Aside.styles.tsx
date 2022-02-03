@@ -1,12 +1,15 @@
 import tw from "twin.macro";
 
 export const HomeAside = tw.aside`
-    hidden md:h-screen md:flex flex-col sticky top-0 left-0 w-48
+    hidden md:h-screen md:flex flex-col sticky top-0 left-0 w-48 overflow-y-auto
 `;
 
 export const AsideTitle = tw.div`
- mt-8 mb-8
+ mt-8 mb-2
+ p-2
     w-full mx-auto
+    text-gray-800
+    dark:text-gray-100
 `;
 
 export const AsideList = tw.ul`
@@ -16,7 +19,7 @@ export const AsideList = tw.ul`
 `;
 
 export const ListItem = tw.li`
-    text-gray-700 hover:bg-white rounded-full transition-all w-max text-lg 
+    text-gray-700 hover:bg-white rounded-full transition-all w-max text-lg dark:hover:bg-gray-700
 `;
 
 export const ListItemLink = tw.a`
@@ -61,4 +64,17 @@ w-12
 h-12
 object-cover
 object-center
+`;
+
+export const DarkModeButton = tw.button`
+flex items-center justify-center
+text-gray-400
+text-2xl
+font-semibold
+rounded-full
+p-3
+transition-all
+border-none
+bg-transparent
+cursor-pointer
 `;

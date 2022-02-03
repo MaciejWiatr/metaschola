@@ -15,7 +15,7 @@ import {
 	GroupLink,
 } from "./Post.styles";
 
-const Post = ({ content }) => {
+const Post = ({ content }: { content: any }) => {
 	return (
 		<PostCard>
 			<PostHeader>

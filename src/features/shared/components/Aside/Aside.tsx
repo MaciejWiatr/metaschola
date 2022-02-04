@@ -133,7 +133,7 @@ const Aside = () => {
 				<AsideIconLink href="/settings">
 					<BsGear />
 				</AsideIconLink>
-				<UserImg src={user?.photoURL} />
+				<UserImg src={user?.photoURL as string} />
 			</AsideUserContainer>
 		</HomeAside>
 	);

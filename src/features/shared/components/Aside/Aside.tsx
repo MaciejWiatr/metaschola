@@ -28,9 +28,12 @@ import {
 	UserImg,
 } from "./Aside.styles";
 import { SwitchTransition, CSSTransition } from "react-transition-group";
+import { useAuthState } from "react-firebase-hooks/auth";
+import auth from "$features/shared/firebase/auth";
 
 const Aside = () => {
 	const { toggle, isDark } = useDark();
+	const [user] = useAuthState(auth);
 
 	return (
 		<HomeAside>
@@ -130,7 +133,7 @@ const Aside = () => {
 				<AsideIconLink href="/settings">
 					<BsGear />
 				</AsideIconLink>
-				<UserImg src="https://fajnepodroze.pl/wp-content/uploads/2020/06/Welsh-Corgi-Pembroke.jpg" />
+				<UserImg src={user?.photoURL} />
 			</AsideUserContainer>
 		</HomeAside>
 	);

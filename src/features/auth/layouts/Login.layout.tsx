@@ -1,12 +1,27 @@
+import Logo from "$features/shared/components/Logo";
 import React from "react";
 import Headline from "../components/Headline";
-import { LoginContainer } from "./Login.layout.styles";
+import UndrawImg from "../components/UndrawImg";
+import {
+	FormWrapper,
+	LoginContainer,
+	LoginHeader,
+	LogoWrapper,
+} from "./Login.layout.styles";
 
 const LoginLayout = ({ children }: { children: React.ReactNode }) => {
 	return (
 		<LoginContainer>
-			<Headline />
-			{children}
+			<UndrawImg />
+			<FormWrapper>
+				<LoginHeader>
+					<LogoWrapper>
+						<Logo />
+					</LogoWrapper>
+					<Headline />
+				</LoginHeader>
+				{children}
+			</FormWrapper>
 		</LoginContainer>
 	);
 };

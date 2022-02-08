@@ -36,10 +36,10 @@ export const ListItemText = tw.p`
 `;
 
 export const ListHeader = tw.h3`
-    text-sm font-semibold text-gray-400 mb-1`;
+    text-sm font-semibold text-gray-400 my-2`;
 
 export const Hr = tw.hr`
-    border-b border-white w-full opacity-20
+    border-b-[0.25px] border-white w-full opacity-20
 `;
 
 export const AsideSpacer = tw.div`

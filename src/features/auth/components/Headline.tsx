@@ -16,12 +16,14 @@ const HeadLineContainer = tw.div`
 `;
 
 const HeadLineText = tw.h1`
+    mt-8
     text-6xl
     font-bold
     text-gray-100
     dark:text-gray-100
     font-mont
     mb-8
+    leading-tight
 `;
 
 const SubHeadLineText = tw.h2`

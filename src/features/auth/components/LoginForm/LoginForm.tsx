@@ -2,18 +2,19 @@ import { GoogleIcon, GoogleLoginButton } from "./LoginForm.styles";
 import { FcGoogle } from "react-icons/fc";
 import { useSignInWithGoogle } from "react-firebase-hooks/auth";
 import { useNavigate } from "react-router-dom";
-
 import auth from "$features/shared/firebase/auth";
 import { FormEvent } from "react";
 
 const LoginForm = () => {
-	const [signInWithGoogle, user, loading, error] = useSignInWithGoogle(auth);
+	const [signInWithGoogle, user] = useSignInWithGoogle(auth);
 	const navigate = useNavigate();
 
-	const login = async (e: FormEvent) => {
+	const login = (e: FormEvent) => {
 		e.preventDefault();
-		await signInWithGoogle().then(() => {
-			navigate("/");
+		signInWithGoogle().then(() => {
+			if (user) {
+				navigate("/");
+			}
 		});
 	};
 

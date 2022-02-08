@@ -14,6 +14,7 @@ export const GoogleLoginButton = tw.button`
     cursor-pointer
     hover:bg-gray-200
     hover:shadow-lg
+    text-gray-900
 `;
 
 export const GoogleIcon = tw.div`

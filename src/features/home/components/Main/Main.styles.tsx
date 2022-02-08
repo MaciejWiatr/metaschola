@@ -1,7 +1,7 @@
 import tw from "twin.macro";
 
 export const HomeMain = tw.main`
-	flex flex-col flex-1 py-8 `;
+	flex flex-col flex-1 py-8 w-full items-stretch max-w-2xl`;
 
 export const PostCard = tw.div`
 	mb-4
@@ -12,6 +12,7 @@ export const PostCard = tw.div`
 	border
 	border-gray-200
 	border-solid
+	w-full
 `;
 
 export const UserImg = tw.img`

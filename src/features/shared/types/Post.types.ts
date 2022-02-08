@@ -18,7 +18,10 @@ interface PostType {
 		name: string;
 	};
 	content: PostContent;
-	createdAt: Date;
+	createdAt: {
+		nanoseconds: number;
+		seconds: number;
+	};
 	id: string;
 	reactions: PostReactions;
 }

@@ -83,9 +83,9 @@ bg-gray-100
 dark:bg-gray-700
 text-gray-800
 mt-4
-p-3
 text-base
 px-4
+h-12
 rounded-lg
 outline-none
 dark:text-gray-100

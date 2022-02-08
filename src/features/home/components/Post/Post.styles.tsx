@@ -3,7 +3,6 @@ import tw from "twin.macro";
 export const PostCard = tw.div`
 	mb-4
 	bg-white
-	p-6
 	rounded-lg
 	border
 	border-gray-200
@@ -15,6 +14,7 @@ export const PostCard = tw.div`
 	backdrop-blur
 	dark:text-gray-200
 	break-all
+	w-full
 `;
 
 export const UserImg = tw.img`
@@ -39,6 +39,9 @@ export const PostHeader = tw.div`
 	justify-between
 	mb-2
 	space-x-2
+	p-6
+	pb-0
+
 `;
 
 export const PostAuthorInfo = tw.div`
@@ -53,7 +56,9 @@ export const PostCreatedAt = tw.p`
 `;
 
 export const PostReactions = tw.div`
-	flex
+p-6
+pt-0
+flex
 	items-center
 	justify-start
 	mb-2
@@ -101,4 +106,31 @@ export const GroupLink = tw.a`
 
 export const PostContent = tw.div`
 	my-8
+	mt-4
+	w-full
+	flex
+	flex-col
+	gap-4
+`;
+
+export const ImageWrapper = tw.div`
+	w-full
+	h-auto
+	object-contain
+	object-center
+	overflow-hidden
+`;
+
+export const PostImage = tw.img`
+	w-full
+	h-auto
+	object-contain
+	object-center
+	overflow-hidden
+`;
+
+export const PostText = tw.p`
+	px-6
+	mt-0
+	mb-0
 `;

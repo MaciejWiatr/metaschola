@@ -6,6 +6,7 @@ export const BaseLayout = tw.div`
     dark:bg-gray-900
     bg-opacity-95
     dark:bg-opacity-90
+    dark:text-gray-100
 `;
 
 export const BaseContainer = tw.div`

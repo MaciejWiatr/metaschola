@@ -15,6 +15,8 @@ import {
 	FormPublishButton,
 	FormTextArea,
 	ImagePreview,
+	SelectContainer,
+	SelectIcon,
 } from "./UploadForm.styles";
 import { Switch, Case } from "react-if";
 import { useForm } from "react-hook-form";
@@ -24,12 +26,22 @@ import fireStorage from "$features/shared/firebase/storage";
 import { addDoc, collection } from "firebase/firestore";
 import db from "$features/shared/firebase/db";
 import HashLoader from "react-spinners/HashLoader";
+import { z } from "zod";
+import { zodResolver } from "@hookform/resolvers/zod";
+import { RiDragDropLine, RiArrowDropDownLine } from "react-icons/ri";
+
+const schema = z.object({
+	text: z.string().max(400),
+	image: z.instanceof(File).optional(),
+});
 
 const UploadForm = () => {
 	const [user] = useAuthState(fireAuth);
 	const [selectVal, setSelectVal] = useState("mem");
 	const [loading, setLoading] = useState(false);
-	const { register, handleSubmit, setValue, getValues, reset } = useForm();
+	const { register, handleSubmit, setValue, getValues, reset } = useForm({
+		resolver: zodResolver(schema),
+	});
 	const [bond, state] = useDropArea({
 		onFiles: (files: File[]) => {
 			setValue("image", files[0]);
@@ -75,14 +87,19 @@ const UploadForm = () => {
 					<FormHeaderImage src={user?.photoURL!}></FormHeaderImage>
 					<div>{user?.displayName}</div>
 				</FormHeaderName>
-				<FormHeaderSelect
-					value={selectVal}
-					onChange={(e) => setSelectVal(e.target.value)}
-				>
-					<option value="mem">Memawka</option>
-					<option value="spotted">Spotted</option>
-					<option value="info">Info</option>
-				</FormHeaderSelect>
+				<SelectContainer className="group">
+					<FormHeaderSelect
+						value={selectVal}
+						onChange={(e) => setSelectVal(e.target.value)}
+					>
+						<option value="mem">Memawka</option>
+						<option value="spotted">Spotted</option>
+						<option value="info">Info</option>
+					</FormHeaderSelect>
+					<SelectIcon>
+						<RiArrowDropDownLine size={30} />
+					</SelectIcon>
+				</SelectContainer>
 			</FormHeader>
 			<Form
 				onSubmit={handleSubmit(
@@ -96,10 +113,15 @@ const UploadForm = () => {
 							{...register("text")}
 						/>
 						<DropZone {...bond}>
-							{getValues("image")
-								? `Plik "${getValues("image").name}" został
+							{getValues("image") ? (
+								`Plik "${getValues("image").name}" został
 									wybrany`
-								: "Upuść tutaj swój mem"}
+							) : (
+								<>
+									<RiDragDropLine size={25} />
+									Upuść tutaj swój mem
+								</>
+							)}
 						</DropZone>
 						{getValues("image") && (
 							<>

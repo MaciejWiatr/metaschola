@@ -32,18 +32,37 @@ gap-2
 text-lg
 `;
 
+export const SelectContainer = tw.div`
+relative
+`;
+
+export const SelectIcon = tw.div`
+absolute
+right-1
+top-0
+h-full
+flex
+items-center
+text-gray-100
+transform
+transition-all
+group-hover:rotate-90
+`;
+
 export const FormHeaderSelect = tw.select`
 border-none
 bg-purple-800
 p-3
 text-base
 px-4
+pr-8
 rounded-lg
 outline-none
 text-gray-100
 hover:bg-purple-700
 cursor-pointer
 transition-all
+appearance-none
 `;
 
 export const FormHeaderImage = tw.img`
@@ -130,7 +149,7 @@ text-base
 px-4
 rounded-lg
 outline-none
-text-gray-800
+text-gray-300
 dark:text-gray-700
 border
 border-solid

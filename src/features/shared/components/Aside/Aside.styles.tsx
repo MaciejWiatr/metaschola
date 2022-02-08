@@ -1,8 +1,8 @@
 import tw from "twin.macro";
 
 export const HomeAside = tw.aside`
-    hidden md:h-screen md:flex flex-col sticky top-0 left-0 w-48 overflow-y-auto
-`;
+    hidden h-screen md:flex flex-col md:sticky top-0 left-0 md:w-48 overflow-y-auto
+    `;
 
 export const AsideTitle = tw.div`
  mt-8 mb-2

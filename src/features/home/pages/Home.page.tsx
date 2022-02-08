@@ -1,5 +1,6 @@
 import Main from "../components/Main";
 import { BaseLayout } from "$features/shared";
+import { authRequired } from "$features/shared";
 
 const HomePage = () => {
 	return (
@@ -9,4 +10,4 @@ const HomePage = () => {
 	);
 };
 
-export default HomePage;
+export default authRequired(HomePage);

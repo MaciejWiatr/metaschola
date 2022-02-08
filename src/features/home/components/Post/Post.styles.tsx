@@ -13,6 +13,8 @@ export const PostCard = tw.div`
 	bg-opacity-50
 	dark:bg-opacity-50
 	backdrop-blur
+	dark:text-gray-200
+	break-all
 `;
 
 export const UserImg = tw.img`
@@ -98,5 +100,5 @@ export const GroupLink = tw.a`
 `;
 
 export const PostContent = tw.div`
-    min-h-[200px]
+	my-8
 `;

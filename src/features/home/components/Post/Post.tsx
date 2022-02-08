@@ -1,3 +1,4 @@
+import PostType from "$features/shared/types/Post.types";
 import { BsHandThumbsUp, BsChatSquareText } from "react-icons/bs";
 import {
 	PostCard,
@@ -15,14 +16,14 @@ import {
 	GroupLink,
 } from "./Post.styles";
 
-const Post = ({ content }: { content: any }) => {
+const Post = ({ post }: { post: PostType }) => {
 	return (
 		<PostCard>
 			<PostHeader>
 				<Author>
-					<UserImg src="https://hauever.pl/wp-content/uploads/2021/05/corgi-rasy-psow.jpg" />
+					<UserImg src={post.author.img} />
 					<PostAuthorInfo>
-						<PostAuthorName>Maciej Corgas</PostAuthorName>
+						<PostAuthorName>{post.author.name}</PostAuthorName>
 						<PostCreatedAt>22.09.2001</PostCreatedAt>
 					</PostAuthorInfo>
 				</Author>
@@ -30,11 +31,11 @@ const Post = ({ content }: { content: any }) => {
 					Opublikowano w: <GroupLink>Memawka</GroupLink>
 				</GroupInfo>
 			</PostHeader>
-			<PostContent>{content}</PostContent>
+			<PostContent>{post.content.text}</PostContent>
 			<PostReactions>
 				<PostReaction>
 					<BsHandThumbsUp />
-					<ReactionText>12</ReactionText>
+					<ReactionText>{post.reactions.likes}</ReactionText>
 				</PostReaction>
 				<PostReaction>
 					<BsChatSquareText />

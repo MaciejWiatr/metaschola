@@ -43,7 +43,7 @@ const MemePost = ({ post }: IProps) => {
 			count += post.reactions.likes.length;
 		}
 		if (post.reactions.dislikes) {
-			count += post.reactions.dislikes.length;
+			count -= post.reactions.dislikes.length;
 		}
 		return count;
 	}, [post.reactions]);

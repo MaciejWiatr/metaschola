@@ -1,5 +1,9 @@
+import { fireAuth } from "$features/shared";
+import { dislikePost, likePost } from "$features/shared/services/Post.service";
 import PostType from "$features/shared/types/Post.types";
 import getRelativeDate from "$features/shared/utils/getRelativeDate";
+import { useMemo } from "react";
+import { useAuthState } from "react-firebase-hooks/auth";
 import { BsHandThumbsUp, BsChatSquareText } from "react-icons/bs";
 import {
 	Author,
@@ -24,6 +28,23 @@ interface IProps {
 }
 
 const SpottedPost = ({ post }: IProps) => {
+	const [user] = useAuthState(fireAuth);
+
+	const isLiked = useMemo(() => {
+		if (!user) return false;
+		return post.reactions.likes?.includes(user.uid)!;
+	}, [post.reactions]);
+
+	const handleLike = async () => {
+		if (user) {
+			if (isLiked) {
+				await dislikePost(post.id, user.uid);
+			} else {
+				await likePost(post.id, user.uid);
+			}
+		}
+	};
+
 	return (
 		<SpottedPostCard>
 			<PostHeader>
@@ -45,9 +66,9 @@ const SpottedPost = ({ post }: IProps) => {
 				<PostText>{post.content.text}</PostText>
 			</PostContent>
 			<PostReactions>
-				<PostReaction>
+				<PostReaction active={isLiked} onClick={handleLike}>
 					<BsHandThumbsUp />
-					<ReactionText>{post.reactions.likes}</ReactionText>
+					<ReactionText>{post.reactions.likes?.length}</ReactionText>
 				</PostReaction>
 				<PostReaction>
 					<BsChatSquareText />

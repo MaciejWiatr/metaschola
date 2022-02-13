@@ -1,7 +1,6 @@
 import PostType from "$features/shared/types/Post.types";
 import { BiUpArrow, BiDownArrow } from "react-icons/bi";
 import {
-	PostCard,
 	PostHeader,
 	UserImg,
 	PostAuthorInfo,
@@ -12,7 +11,6 @@ import {
 	ReactionText,
 	Author,
 	GroupInfo,
-	PostContent,
 	GroupLink,
 	ImageWrapper,
 	PostImage,
@@ -26,25 +24,52 @@ import {
 	MemeReaction,
 	MemeReactions,
 } from "./MemePost.styles";
-import { BsChatSquareText, BsHandThumbsUp } from "react-icons/bs";
+import { BsChatSquareText } from "react-icons/bs";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { fireAuth } from "$features/shared";
+import { dislikePost, likePost } from "$features/shared/services/Post.service";
+import { useMemo } from "react";
 
 interface IProps {
 	post: PostType;
 }
 
 const MemePost = ({ post }: IProps) => {
+	const [user] = useAuthState(fireAuth);
+
+	const reactionCount = useMemo(() => {
+		let count = 0;
+		if (post.reactions.likes) {
+			count += post.reactions.likes.length;
+		}
+		if (post.reactions.dislikes) {
+			count += post.reactions.dislikes.length;
+		}
+		return count;
+	}, [post.reactions]);
+
+	const handleUpVote = async () => {
+		if (user) {
+			await likePost(post.id, user.uid);
+		}
+	};
+
+	const handleDownVote = async () => {
+		if (user) {
+			await dislikePost(post.id, user.uid);
+		}
+	};
+
 	return (
 		<MemePostCard>
 			<MemeReactions>
-				<MemeReaction>
+				<MemeReaction onClick={handleUpVote}>
 					<BiUpArrow />
 				</MemeReaction>
-				<ReactionText>
-					{post.reactions.likes - post.reactions.dislikes}
-				</ReactionText>
-				<PostReaction>
+				<ReactionText>{reactionCount}</ReactionText>
+				<MemeReaction onClick={handleDownVote}>
 					<BiDownArrow />
-				</PostReaction>
+				</MemeReaction>
 			</MemeReactions>
 			<MemeBody>
 				<PostHeader>

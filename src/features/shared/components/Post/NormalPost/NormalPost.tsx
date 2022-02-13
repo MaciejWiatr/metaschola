@@ -19,12 +19,33 @@ import {
 	PostText,
 } from "../Default/DefaultPost.styles";
 import getRelativeDate from "$features/shared/utils/getRelativeDate";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { fireAuth } from "$features/shared";
+import { dislikePost, likePost } from "$features/shared/services/Post.service";
+import { useMemo } from "react";
 
 interface IProps {
 	post: PostType;
 }
 
 const NormalPost = ({ post }: IProps) => {
+	const [user] = useAuthState(fireAuth);
+
+	const isLiked = useMemo(() => {
+		if (!user) return false;
+		return post.reactions.likes?.includes(user.uid);
+	}, [post.reactions]);
+
+	const handleLike = async () => {
+		if (user) {
+			if (isLiked) {
+				await dislikePost(post.id, user.uid);
+			} else {
+				await likePost(post.id, user.uid);
+			}
+		}
+	};
+
 	return (
 		<PostCard>
 			<PostHeader>
@@ -50,9 +71,9 @@ const NormalPost = ({ post }: IProps) => {
 				)}
 			</PostContent>
 			<PostReactions>
-				<PostReaction>
+				<PostReaction onClick={handleLike}>
 					<BsHandThumbsUp />
-					<ReactionText>{post.reactions.likes}</ReactionText>
+					<ReactionText>{post.reactions.likes?.length}</ReactionText>
 				</PostReaction>
 				<PostReaction>
 					<BsChatSquareText />

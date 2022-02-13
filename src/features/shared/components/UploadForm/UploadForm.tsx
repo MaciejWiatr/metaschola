@@ -70,8 +70,8 @@ const UploadForm = () => {
 			},
 			createdAt: new Date(),
 			reactions: {
-				likes: 0,
-				dislikes: 0,
+				likes: [],
+				dislikes: [],
 			},
 		});
 

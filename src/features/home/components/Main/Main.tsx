@@ -28,7 +28,13 @@ const Main = () => {
 				<Else>
 					{value &&
 						value.docs.map((doc) => (
-							<Post key={doc.id} post={doc.data() as PostType} />
+							<Post
+								key={doc.id}
+								post={{
+									...(doc.data() as PostType),
+									id: doc.id,
+								}}
+							/>
 						))}
 				</Else>
 			</If>

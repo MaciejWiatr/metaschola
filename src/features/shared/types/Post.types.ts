@@ -4,8 +4,8 @@ interface PostContent {
 }
 
 interface PostReactions {
-	likes?: number | string[];
-	dislikes?: number | string[];
+	likes?: string[];
+	dislikes?: string[];
 }
 
 type PostTypeEnum =

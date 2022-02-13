@@ -4,11 +4,17 @@ interface PostContent {
 }
 
 interface PostReactions {
-	likes?: number;
-	dislikes?: number;
+	likes?: number | string[];
+	dislikes?: number | string[];
 }
 
-type PostTypeEnum = "mem" | "text" | "opinion";
+type PostTypeEnum =
+	| "mem"
+	| "discussion"
+	| "opinion"
+	| "spotted"
+	| "announcement"
+	| "event";
 
 interface PostType {
 	type: PostTypeEnum;

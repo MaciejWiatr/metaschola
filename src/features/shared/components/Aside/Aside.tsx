@@ -9,6 +9,7 @@ import {
 	BsGear,
 	BsMoonStars,
 	BsSun,
+	BsChatDots,
 } from "react-icons/bs";
 import Logo from "../Logo";
 import {
@@ -63,7 +64,15 @@ const Aside = () => {
 						<ListItemIcon>
 							<BsInfoCircle />
 						</ListItemIcon>
-						<ListItemText>Info</ListItemText>
+						<ListItemText>Ogłoszenia</ListItemText>
+					</ListItemLink>
+				</ListItem>
+				<ListItem>
+					<ListItemLink href="/">
+						<ListItemIcon>
+							<BsChatDots />
+						</ListItemIcon>
+						<ListItemText>Dyskusje</ListItemText>
 					</ListItemLink>
 				</ListItem>
 				<ListItem>
@@ -99,7 +108,7 @@ const Aside = () => {
 						<ListItemIcon>
 							<BsInfoCircle />
 						</ListItemIcon>
-						<ListItemText>Info</ListItemText>
+						<ListItemText>Ogłoszenia</ListItemText>
 					</ListItemLink>
 				</ListItem>
 				<ListItem>

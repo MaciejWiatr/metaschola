@@ -94,7 +94,7 @@ const UploadForm = () => {
 					>
 						<option value="mem">Memawka</option>
 						<option value="spotted">Spotted</option>
-						<option value="info">Info</option>
+						<option value="announcement">Ogłoszenie</option>
 					</FormHeaderSelect>
 					<SelectIcon>
 						<RiArrowDropDownLine size={30} />
@@ -134,9 +134,9 @@ const UploadForm = () => {
 							</>
 						)}
 					</Case>
-					<Case condition={selectVal === "info"}>
+					<Case condition={selectVal === "announcement"}>
 						<FormTextArea
-							placeholder="Napisz coś miłego ❤"
+							placeholder="Wpisz tutaj treść ogłoszenia"
 							{...register("text")}
 						/>
 						<DropZone {...bond}>

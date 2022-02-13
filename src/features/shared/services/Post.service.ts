@@ -5,6 +5,7 @@ const likePost = async (postId: string, userId: string) => {
 	await updateDoc(docRef, {
 		reactions: {
 			likes: arrayUnion(userId),
+			dislikes: arrayRemove(userId),
 		},
 	});
 };
@@ -14,6 +15,7 @@ const dislikePost = async (postId: string, userId: string) => {
 	await updateDoc(docRef, {
 		reactions: {
 			likes: arrayRemove(userId),
+			dislikes: arrayUnion(userId),
 		},
 	});
 };

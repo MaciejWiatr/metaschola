@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;700&display=swap");
-@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
 
 * {
 	box-sizing: border-box;
@@ -12,16 +12,16 @@
 
 body {
 	margin: 0;
-	font-family: "Inter", sans-serif;
+	font-family: 'Inter', sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
-	background-image: url("/bg.jpg");
+	background-image: url('/bg.jpg');
 	background-attachment: fixed;
 	background-size: cover;
 }
 
 code {
-	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
 		monospace;
 }
 
@@ -44,4 +44,147 @@ code {
 .slide-enter-active,
 .slide-exit-active {
 	transition: all 0.35s;
+}
+
+.st0 {
+	fill: #f68d88;
+}
+.st1 {
+	fill: none;
+	stroke: #ecbdbb;
+	stroke-width: 1.096442;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-miterlimit: 10;
+}
+.st2 {
+	fill: #9ab3da;
+}
+.st3 {
+	fill: #404b7c;
+}
+.st4 {
+	fill: none;
+	stroke: #d4e6fc;
+	stroke-width: 1.0433227;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-miterlimit: 10;
+}
+.st5 {
+	fill: none;
+	stroke: #ecbdbb;
+	stroke-width: 1.0509137;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-miterlimit: 10;
+}
+.st6 {
+	fill: none;
+	stroke: #deebff;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-miterlimit: 10;
+}
+.st7 {
+	fill: #ecbdbb;
+}
+.st8 {
+	fill: none;
+	stroke: #404b7c;
+	stroke-width: 1.0509137;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-miterlimit: 10;
+}
+.st9 {
+	fill: none;
+	stroke: #ecbdbb;
+	stroke-width: 0.8524917;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-miterlimit: 10;
+}
+.st10 {
+	fill: none;
+	stroke: #404b7c;
+	stroke-width: 1.0401611;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-miterlimit: 10;
+}
+.st11 {
+	fill: none;
+	stroke: #f68d88;
+	stroke-width: 1.0401611;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-miterlimit: 10;
+}
+.st12 {
+	fill: #ffffff;
+}
+.st13 {
+	fill: none;
+	stroke: #404b7c;
+	stroke-width: 1.0361407;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-miterlimit: 10;
+}
+.st14 {
+	fill: none;
+	stroke: #9ab3da;
+	stroke-width: 1.0509137;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-miterlimit: 10;
+}
+.st15 {
+	fill: none;
+	stroke: #6b81be;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-miterlimit: 10;
+}
+.st16 {
+	fill: #e9f3ff;
+}
+.st17 {
+	fill: none;
+	stroke: #9ab3da;
+	stroke-width: 0.9931163;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-miterlimit: 10;
+}
+.st18 {
+	fill: none;
+	stroke: #404b7c;
+	stroke-width: 0.9931163;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-miterlimit: 10;
+}
+.st19 {
+	fill: none;
+	stroke: #f68d88;
+	stroke-width: 0.9931163;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-miterlimit: 10;
+}
+.st20 {
+	fill: none;
+	stroke: #9ab3da;
+	stroke-width: 0.8524917;
+	stroke-linecap: round;
+	stroke-linejoin: round;
+	stroke-miterlimit: 10;
+}
+.st21 {
+	fill: #9ab3da;
+	stroke: #9ab3da;
+	stroke-width: 0.25;
+	stroke-miterlimit: 10;
 }

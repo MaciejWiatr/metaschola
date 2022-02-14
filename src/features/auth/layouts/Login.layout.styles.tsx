@@ -5,6 +5,8 @@ export const LoginContainer = tw.div`
     h-screen
     flex 
     justify-end
+    bg-white
+    bg-opacity-90
 `;
 
 export const LoginBlob = tw.div`

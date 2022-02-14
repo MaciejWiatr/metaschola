@@ -12,6 +12,7 @@ const HeadLineText = tw.h1`
     font-mont
     mb-8
     leading-tight
+    letter-spacing[2px]
 `;
 
 const SubHeadLineText = tw.h2`
@@ -29,8 +30,8 @@ function Headline() {
 		<HeadLineContainer>
 			<HeadLineText>Życie twojej szkoły w jednym miejscu</HeadLineText>
 			<SubHeadLineText>
-				Laboris sunt id Lorem eiusmod duis esse ipsum dolore eiusmod
-				deserunt.
+				Poznawaj nowych ludzi, wchodź z nimi w interakcje i aktywnie
+				twórz społeczność swojej szkoły!
 			</SubHeadLineText>
 		</HeadLineContainer>
 	);

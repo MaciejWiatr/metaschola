@@ -38,7 +38,7 @@ const useBestStudents = (): IReturnValues => {
 
 		studentRank.sort((a, b) => b.posts - a.posts);
 
-		return studentRank;
+		return studentRank.slice(0, 3);
 	}, [value]);
 
 	return { bestStudents, loading, error };

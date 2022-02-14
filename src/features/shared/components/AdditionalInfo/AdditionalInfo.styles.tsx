@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import tw from "twin.macro";
 
 export const InfoContainer = tw.div`
@@ -23,13 +24,13 @@ export const UserRankHeader = tw.p`
     text-gray-400
 `;
 
-export const RankList = tw.ul`
+export const RankList = tw(motion.ul)`
     list-none
     p-0
     mt-0
     space-y-3
 `;
-export const RankItem = tw.li`
+export const RankItem = tw(motion.li)`
 text-gray-700
 dark:text-gray-300
 p-3
@@ -38,4 +39,17 @@ not-last:border-b
 border-solid
 border-gray-100
 dark:border-gray-700
+flex
+h-12
+justify-between
+`;
+
+export const RankItemText = tw.p`
+`;
+
+export const RankItemIcon = tw.div`
+    text-purple-600
+    font-semibold
+    flex items-center
+    gap-2
 `;

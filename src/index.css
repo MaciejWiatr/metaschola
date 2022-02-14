@@ -4,6 +4,11 @@
 	box-sizing: border-box;
 }
 
+:root {
+	scroll-behavior: smooth;
+	scroll-padding-top: 10px;
+}
+
 body {
 	margin: 0;
 	font-family: "Inter", sans-serif;

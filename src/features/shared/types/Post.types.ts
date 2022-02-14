@@ -8,7 +8,20 @@ interface PostReactions {
 	dislikes?: string[];
 }
 
-type PostTypeEnum =
+export interface EntryAuthor {
+	id: string;
+	img: string;
+	name: string;
+}
+
+interface Comment {
+	id: string;
+	author: EntryAuthor;
+	text: string;
+	subcomments?: Comment[];
+}
+
+export type PostTypeEnum =
 	| "mem"
 	| "discussion"
 	| "opinion"
@@ -18,11 +31,7 @@ type PostTypeEnum =
 
 interface PostType {
 	type: PostTypeEnum;
-	author: {
-		id: string;
-		img: string;
-		name: string;
-	};
+	author: EntryAuthor;
 	content: PostContent;
 	createdAt: {
 		nanoseconds: number;
@@ -30,6 +39,7 @@ interface PostType {
 	};
 	id: string;
 	reactions: PostReactions;
+	comments: Comment[];
 }
 
 export default PostType;

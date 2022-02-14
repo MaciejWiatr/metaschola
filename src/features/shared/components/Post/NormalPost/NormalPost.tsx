@@ -47,7 +47,7 @@ const NormalPost = ({ post }: IProps) => {
 	};
 
 	return (
-		<PostCard>
+		<PostCard id={post.id}>
 			<PostHeader>
 				<Author>
 					<UserImg src={post.author.img} />

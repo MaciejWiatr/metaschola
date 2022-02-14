@@ -24,7 +24,7 @@ interface IProps {
 
 const AnnouncementPost = ({ post }: IProps) => {
 	return (
-		<AnnouncementPostCard>
+		<AnnouncementPostCard id={post.id}>
 			<PostHeader>
 				<Author>
 					<UserImg src={post.author.img} />

@@ -61,7 +61,7 @@ const MemePost = ({ post }: IProps) => {
 	};
 
 	return (
-		<MemePostCard>
+		<MemePostCard id={post.id}>
 			<MemeReactions>
 				<MemeReaction onClick={handleUpVote}>
 					<BiUpArrow />

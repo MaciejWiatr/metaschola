@@ -1,7 +1,5 @@
 import { BiUpArrow, BiDownArrow } from 'react-icons/bi';
 import { BsChatSquareText } from 'react-icons/bs';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { useMemo } from 'react';
 import PostType from '$features/shared/types/Post.types';
 import {
 	PostHeader,
@@ -19,7 +17,6 @@ import {
 	PostImage,
 	PostText,
 } from '../Default/DefaultPost.styles';
-import getRelativeDate from '$features/shared/utils/getRelativeDate';
 import {
 	MemeBody,
 	MemeContent,
@@ -27,43 +24,21 @@ import {
 	MemeReaction,
 	MemeReactions,
 } from './MemePost.styles';
-import { fireAuth } from '$features/shared';
-import { dislikePost, likePost } from '$features/shared/services/Post.service';
+import usePost from '$features/shared/hooks/usePost';
 
 interface IProps {
 	post: PostType;
 }
 
 function MemePost({ post }: IProps) {
-	const [user] = useAuthState(fireAuth);
-
-	const isLiked = useMemo(() => {
-		if (!user) return false;
-		return post.reactions.likes?.includes(user.uid);
-	}, [post.reactions.likes, user]);
-
-	const reactionCount = useMemo(() => {
-		let count = 0;
-		if (post.reactions.likes) {
-			count += post.reactions.likes.length;
-		}
-		if (post.reactions.dislikes) {
-			count -= post.reactions.dislikes.length;
-		}
-		return count;
-	}, [post.reactions]);
-
-	const handleUpVote = async () => {
-		if (user) {
-			await likePost(post.id, user.uid);
-		}
-	};
-
-	const handleDownVote = async () => {
-		if (user) {
-			await dislikePost(post.id, user.uid);
-		}
-	};
+	const {
+		reactionCount,
+		isLiked,
+		handleUpVote,
+		handleDownVote,
+		relativeDate,
+		isDisliked,
+	} = usePost(post);
 
 	return (
 		<MemePostCard id={post.id}>
@@ -72,7 +47,7 @@ function MemePost({ post }: IProps) {
 					<BiUpArrow />
 				</MemeReaction>
 				<ReactionText>{reactionCount}</ReactionText>
-				<MemeReaction onClick={handleDownVote} active={!isLiked}>
+				<MemeReaction onClick={handleDownVote} active={isDisliked}>
 					<BiDownArrow />
 				</MemeReaction>
 			</MemeReactions>
@@ -82,9 +57,7 @@ function MemePost({ post }: IProps) {
 						<UserImg src={post.author.img} />
 						<PostAuthorInfo>
 							<PostAuthorName>{post.author.name}</PostAuthorName>
-							<PostCreatedAt>
-								{getRelativeDate(post.createdAt)}
-							</PostCreatedAt>
+							<PostCreatedAt>{relativeDate}</PostCreatedAt>
 						</PostAuthorInfo>
 					</Author>
 					<GroupInfo>

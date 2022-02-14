@@ -1,6 +1,4 @@
 import { BsHandThumbsUp, BsChatSquareText } from 'react-icons/bs';
-import { useAuthState } from 'react-firebase-hooks/auth';
-import { useMemo } from 'react';
 import PostType from '$features/shared/types/Post.types';
 import {
 	PostCard,
@@ -20,31 +18,14 @@ import {
 	PostImage,
 	PostText,
 } from '../Default/DefaultPost.styles';
-import getRelativeDate from '$features/shared/utils/getRelativeDate';
-import { fireAuth } from '$features/shared';
-import { dislikePost, likePost } from '$features/shared/services/Post.service';
+import usePost from '$features/shared/hooks/usePost';
 
 interface IProps {
 	post: PostType;
 }
 
 function NormalPost({ post }: IProps) {
-	const [user] = useAuthState(fireAuth);
-
-	const isLiked = useMemo(() => {
-		if (!user) return false;
-		return post.reactions.likes?.includes(user.uid);
-	}, [post.reactions.likes, user]);
-
-	const handleLike = async () => {
-		if (user) {
-			if (isLiked) {
-				await dislikePost(post.id, user.uid);
-			} else {
-				await likePost(post.id, user.uid);
-			}
-		}
-	};
+	const { handleLike, relativeDate } = usePost(post);
 
 	return (
 		<PostCard id={post.id}>
@@ -53,9 +34,7 @@ function NormalPost({ post }: IProps) {
 					<UserImg src={post.author.img} />
 					<PostAuthorInfo>
 						<PostAuthorName>{post.author.name}</PostAuthorName>
-						<PostCreatedAt>
-							{getRelativeDate(post.createdAt)}
-						</PostCreatedAt>
+						<PostCreatedAt>{relativeDate}</PostCreatedAt>
 					</PostAuthorInfo>
 				</Author>
 				<GroupInfo>

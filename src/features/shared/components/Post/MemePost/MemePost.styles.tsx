@@ -1,10 +1,10 @@
-import tw from "twin.macro";
+import tw from 'twin.macro';
 import {
-	PostCard,
-	PostContent,
-	PostReaction,
-	PostReactions,
-} from "../Default/DefaultPost.styles";
+  PostCard,
+  PostContent,
+  PostReaction,
+  PostReactions,
+} from '../Default/DefaultPost.styles';
 
 export const MemePostCard = tw(PostCard)`
     flex

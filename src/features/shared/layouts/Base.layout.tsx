@@ -1,12 +1,13 @@
-import AdditionalInfo from "../components/AdditionalInfo";
-import Aside from "../components/Aside";
-import { BaseContainer, BaseLayout } from "./Base.layout.styles";
+import React from 'react';
+import AdditionalInfo from '../components/AdditionalInfo';
+import Aside from '../components/Aside';
+import { BaseContainer, BaseLayout } from './Base.layout.styles';
 
 interface IProps {
 	children: React.ReactNode;
 }
 
-const HomeLayout = ({ children }: IProps) => {
+function HomeLayout({ children }: IProps) {
 	return (
 		<BaseLayout>
 			<BaseContainer>
@@ -16,6 +17,6 @@ const HomeLayout = ({ children }: IProps) => {
 			</BaseContainer>
 		</BaseLayout>
 	);
-};
+}
 
 export default HomeLayout;

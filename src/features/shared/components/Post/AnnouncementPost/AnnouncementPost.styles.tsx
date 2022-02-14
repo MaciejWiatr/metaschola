@@ -1,9 +1,9 @@
-import tw from "twin.macro";
+import tw from 'twin.macro';
 import {
-	PostAuthorName,
-	PostCard,
-	PostContent,
-} from "../Default/DefaultPost.styles";
+  PostAuthorName,
+  PostCard,
+  PostContent,
+} from '../Default/DefaultPost.styles';
 
 export const AnnouncementPostCard = tw(PostCard)`
 bg-gradient-to-tr from-purple-900 to-purple-500

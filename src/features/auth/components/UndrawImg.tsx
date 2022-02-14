@@ -1,7 +1,24 @@
-import React from "react";
-import tw from "twin.macro";
+import React from 'react';
+import tw from 'twin.macro';
 
-const UndrawImg = () => {
+const SVGWrapper = tw.div`
+    absolute
+    w-1/2
+    left-0
+    bottom-0
+    overflow-hidden
+    opacity-80
+    backdrop-blur
+    hidden
+    lg:block
+`;
+
+const SVGStyled = tw.svg`
+   relative
+   -bottom-2
+`;
+
+function UndrawImg() {
 	return (
 		<SVGWrapper>
 			<SVGStyled viewBox="0 0 1066.10578 824.1997">
@@ -174,23 +191,6 @@ const UndrawImg = () => {
 			</SVGStyled>
 		</SVGWrapper>
 	);
-};
-
-const SVGWrapper = tw.div`
-    absolute
-    w-1/2
-    left-0
-    bottom-0
-    overflow-hidden
-    opacity-80
-    backdrop-blur
-    hidden
-    lg:block
-`;
-
-const SVGStyled = tw.svg`
-   relative
-   -bottom-2
-`;
+}
 
 export default UndrawImg;

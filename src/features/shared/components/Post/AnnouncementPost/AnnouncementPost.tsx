@@ -1,5 +1,4 @@
-import PostType from "$features/shared/types/Post.types";
-import { IoWarningOutline } from "react-icons/io5";
+import PostType from '$features/shared/types/Post.types';
 import {
 	PostHeader,
 	UserImg,
@@ -8,21 +7,20 @@ import {
 	ImageWrapper,
 	PostImage,
 	PostText,
-} from "../Default/DefaultPost.styles";
-import getRelativeDate from "$features/shared/utils/getRelativeDate";
+} from '../Default/DefaultPost.styles';
+import getRelativeDate from '$features/shared/utils/getRelativeDate';
 import {
 	AnnouncementAuthorName,
 	AnnouncementContent,
 	AnnouncementPostCard,
-	AnnouncementPostCardInfo,
 	AnnouncementPostCreatedAt,
-} from "./AnnouncementPost.styles";
+} from './AnnouncementPost.styles';
 
 interface IProps {
 	post: PostType;
 }
 
-const AnnouncementPost = ({ post }: IProps) => {
+function AnnouncementPost({ post }: IProps) {
 	return (
 		<AnnouncementPostCard id={post.id}>
 			<PostHeader>
@@ -48,6 +46,6 @@ const AnnouncementPost = ({ post }: IProps) => {
 			</AnnouncementContent>
 		</AnnouncementPostCard>
 	);
-};
+}
 
 export default AnnouncementPost;

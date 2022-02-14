@@ -1,5 +1,5 @@
-import tw from "twin.macro";
-import styled from "@emotion/styled";
+import tw from 'twin.macro';
+import styled from '@emotion/styled';
 
 export const PostCard = tw.div`
 	mb-4
@@ -67,10 +67,10 @@ flex
 `;
 
 export const PostReaction = styled.div(
-	({ active = false }: { active?: boolean }) => [
-		tw`flex items-center justify-start mr-2 space-x-2 text-xl font-semibold text-gray-400 transition-all cursor-pointer hover:text-purple-600`,
-		active && tw`text-purple-600`,
-	]
+  ({ active = false }: { active?: boolean }) => [
+    tw`flex items-center justify-start mr-2 space-x-2 text-xl font-semibold text-gray-400 transition-all cursor-pointer hover:text-purple-600`,
+    active && tw`text-purple-600`,
+  ],
 );
 
 export const ReactionText = tw.p`

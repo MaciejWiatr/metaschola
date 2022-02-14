@@ -1,5 +1,5 @@
-import { getAuth } from "firebase/auth";
-import { fireApp } from "..";
+import { getAuth } from 'firebase/auth';
+import { fireApp } from '..';
 
 const fireAuth = getAuth(fireApp);
 

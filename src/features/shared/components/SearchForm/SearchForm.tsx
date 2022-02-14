@@ -1,16 +1,16 @@
-import React from "react";
-import { SearchContainer, SearchIcon, SearchInput } from "./SearchForm.styles";
-import { BsSearch } from "react-icons/bs";
+import React from 'react';
+import { BsSearch } from 'react-icons/bs';
+import { SearchContainer, SearchIcon, SearchInput } from './SearchForm.styles';
 
-const SearchForm = () => {
-	return (
-		<SearchContainer>
-			<SearchInput placeholder="Wyszukaj" />
-			<SearchIcon>
-				<BsSearch />
-			</SearchIcon>
-		</SearchContainer>
-	);
-};
+function SearchForm() {
+  return (
+    <SearchContainer>
+      <SearchInput placeholder="Wyszukaj" />
+      <SearchIcon>
+        <BsSearch />
+      </SearchIcon>
+    </SearchContainer>
+  );
+}
 
 export default SearchForm;

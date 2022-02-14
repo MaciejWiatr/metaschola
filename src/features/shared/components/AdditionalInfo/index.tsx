@@ -1,3 +1,3 @@
-import AdditionalInfo from "./AdditionalInfo";
+import AdditionalInfo from './AdditionalInfo';
 
 export default AdditionalInfo;

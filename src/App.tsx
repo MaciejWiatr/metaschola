@@ -1,21 +1,21 @@
-import * as React from "react";
-import { LoginPage } from "$features/auth";
-import { HomePage } from "$features/home";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
-import { GlobalStyles } from "twin.macro";
+import * as React from 'react';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
+import { GlobalStyles } from 'twin.macro';
+import { LoginPage } from '$features/auth';
+import { HomePage } from '$features/home';
 
 function App() {
-	return (
-		<React.StrictMode>
-			<BrowserRouter>
-				<Routes>
-					<Route path="/" element={<HomePage />} />
-					<Route path="/login" element={<LoginPage />} />
-				</Routes>
-			</BrowserRouter>
-			<GlobalStyles />
-		</React.StrictMode>
-	);
+  return (
+    <React.StrictMode>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/login" element={<LoginPage />} />
+        </Routes>
+      </BrowserRouter>
+      <GlobalStyles />
+    </React.StrictMode>
+  );
 }
 
 export default App;

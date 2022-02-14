@@ -1,24 +1,24 @@
-import { GoogleIcon, GoogleLoginButton } from "./LoginForm.styles";
-import { FcGoogle } from "react-icons/fc";
-import { useSignInWithGoogle } from "react-firebase-hooks/auth";
-import { useNavigate } from "react-router-dom";
-import auth from "$features/shared/firebase/auth";
-import {FormEvent, useEffect} from "react";
+import { FcGoogle } from 'react-icons/fc';
+import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
+import { useNavigate } from 'react-router-dom';
+import { FormEvent, useEffect } from 'react';
+import auth from '$features/shared/firebase/auth';
+import { GoogleIcon, GoogleLoginButton } from './LoginForm.styles';
 
-const LoginForm = () => {
+function LoginForm() {
 	const [signInWithGoogle, user] = useSignInWithGoogle(auth);
 	const navigate = useNavigate();
 
 	const login = async (e: FormEvent) => {
 		e.preventDefault();
-		await signInWithGoogle()
+		await signInWithGoogle();
 	};
 
-	useEffect(()=>{
+	useEffect(() => {
 		if (user) {
-			navigate("/");
+			navigate('/');
 		}
-	},[user])
+	}, [user]);
 
 	return (
 		<form onSubmit={login}>
@@ -30,6 +30,6 @@ const LoginForm = () => {
 			</GoogleLoginButton>
 		</form>
 	);
-};
+}
 
 export default LoginForm;

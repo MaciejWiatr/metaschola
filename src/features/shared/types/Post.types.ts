@@ -22,12 +22,12 @@ interface Comment {
 }
 
 export type PostTypeEnum =
-	| "mem"
-	| "discussion"
-	| "opinion"
-	| "spotted"
-	| "announcement"
-	| "event";
+	| 'mem'
+	| 'discussion'
+	| 'opinion'
+	| 'spotted'
+	| 'announcement'
+	| 'event';
 
 interface PostType {
 	type: PostTypeEnum;

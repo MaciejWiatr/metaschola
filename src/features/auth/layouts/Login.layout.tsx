@@ -1,15 +1,15 @@
-import Logo from "$features/shared/components/Logo";
-import React from "react";
-import Headline from "../components/Headline";
-import UndrawImg from "../components/UndrawImg";
+import React from 'react';
+import Logo from '$features/shared/components/Logo';
+import Headline from '../components/Headline';
+import UndrawImg from '../components/UndrawImg';
 import {
 	FormWrapper,
 	LoginContainer,
 	LoginHeader,
 	LogoWrapper,
-} from "./Login.layout.styles";
+} from './Login.layout.styles';
 
-const LoginLayout = ({ children }: { children: React.ReactNode }) => {
+function LoginLayout({ children }: { children: React.ReactNode }) {
 	return (
 		<LoginContainer>
 			<UndrawImg />
@@ -24,6 +24,6 @@ const LoginLayout = ({ children }: { children: React.ReactNode }) => {
 			</FormWrapper>
 		</LoginContainer>
 	);
-};
+}
 
 export default LoginLayout;

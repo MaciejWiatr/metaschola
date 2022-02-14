@@ -1,10 +1,11 @@
-import ReactDOM from "react-dom";
-import App from "./App";
-import "./index.css";
-import * as dayjs from "dayjs";
-import relativeTime from "dayjs/plugin/relativeTime";
-import "dayjs/locale/pl";
-dayjs.extend(relativeTime);
-dayjs.locale("pl");
+import ReactDOM from 'react-dom';
+import './index.css';
+import * as dayjs from 'dayjs';
+import relativeTime from 'dayjs/plugin/relativeTime';
+import 'dayjs/locale/pl';
+import App from './App';
 
-ReactDOM.render(<App />, document.getElementById("root"));
+dayjs.extend(relativeTime);
+dayjs.locale('pl');
+
+ReactDOM.render(<App />, document.getElementById('root'));

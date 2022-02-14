@@ -1,16 +1,4 @@
-import tw from "twin.macro";
-
-const Headline = () => {
-	return (
-		<HeadLineContainer>
-			<HeadLineText>Życie twojej szkoły w jednym miejscu</HeadLineText>
-			<SubHeadLineText>
-				Laboris sunt id Lorem eiusmod duis esse ipsum dolore eiusmod
-				deserunt.
-			</SubHeadLineText>
-		</HeadLineContainer>
-	);
-};
+import tw from 'twin.macro';
 
 const HeadLineContainer = tw.div`
 `;
@@ -35,5 +23,17 @@ const SubHeadLineText = tw.h2`
     mb-8
     w-96
 `;
+
+function Headline() {
+	return (
+		<HeadLineContainer>
+			<HeadLineText>Życie twojej szkoły w jednym miejscu</HeadLineText>
+			<SubHeadLineText>
+				Laboris sunt id Lorem eiusmod duis esse ipsum dolore eiusmod
+				deserunt.
+			</SubHeadLineText>
+		</HeadLineContainer>
+	);
+}
 
 export default Headline;

@@ -1,10 +1,10 @@
-import { collection, query, where } from "firebase/firestore";
-import { useMemo } from "react";
-import { useCollection } from "react-firebase-hooks/firestore";
-import db from "../firebase/db";
-import PostType, { EntryAuthor } from "../types/Post.types";
+import { collection, query, where } from 'firebase/firestore';
+import { useMemo } from 'react';
+import { useCollection } from 'react-firebase-hooks/firestore';
+import db from '../firebase/db';
+import PostType, { EntryAuthor } from '../types/Post.types';
 
-const q = query(collection(db, "posts"), where("type", "!=", "spotted"));
+const q = query(collection(db, 'posts'), where('type', '!=', 'spotted'));
 
 interface IStudentRank extends EntryAuthor {
 	posts: number;
@@ -22,17 +22,17 @@ const useBestStudents = (): IReturnValues => {
 	const bestStudents = useMemo(() => {
 		if (!value) return [];
 
-		let studentRank: IStudentRank[] = [];
+		const studentRank: IStudentRank[] = [];
 
-		value.docs.map((doc) => {
+		value.docs.forEach((doc) => {
 			const data = doc.data() as PostType;
-			let existingEntry = studentRank.find(
+			const existingEntry = studentRank.find(
 				(a) => a.id === data.author.id
 			);
 			if (!existingEntry) {
 				studentRank.push({ ...data.author, posts: 1 });
 			} else {
-				existingEntry.posts++;
+				existingEntry.posts += 1;
 			}
 		});
 

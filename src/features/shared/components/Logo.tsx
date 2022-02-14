@@ -1,6 +1,10 @@
-import tw from "twin.macro";
+import tw from 'twin.macro';
 
-const Logo = () => {
+const StyledPath = tw.path`
+	fill-current
+`;
+
+function Logo() {
 	return (
 		<svg
 			viewBox="0 0 1978 400"
@@ -29,10 +33,6 @@ const Logo = () => {
 			</defs>
 		</svg>
 	);
-};
-
-const StyledPath = tw.path`
-	fill-current
-`;
+}
 
 export default Logo;

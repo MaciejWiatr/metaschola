@@ -1,4 +1,4 @@
-import tw from "twin.macro";
+import tw from 'twin.macro';
 
 export const BaseLayout = tw.div`
     bg-gray-100 w-full h-full min-h-screen

@@ -1,4 +1,4 @@
-import tw from "twin.macro";
+import tw from 'twin.macro';
 
 export const HomeAside = tw.aside`
     hidden h-screen md:flex flex-col md:sticky top-0 left-0 md:w-48 overflow-y-auto

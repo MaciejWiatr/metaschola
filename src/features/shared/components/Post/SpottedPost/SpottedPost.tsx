@@ -1,10 +1,10 @@
-import { fireAuth } from "$features/shared";
-import { dislikePost, likePost } from "$features/shared/services/Post.service";
-import PostType from "$features/shared/types/Post.types";
-import getRelativeDate from "$features/shared/utils/getRelativeDate";
-import { useMemo } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { BsHandThumbsUp, BsChatSquareText } from "react-icons/bs";
+import { useMemo } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { BsHandThumbsUp, BsChatSquareText } from 'react-icons/bs';
+import { fireAuth } from '$features/shared';
+import { dislikePost, likePost } from '$features/shared/services/Post.service';
+import PostType from '$features/shared/types/Post.types';
+import getRelativeDate from '$features/shared/utils/getRelativeDate';
 import {
 	Author,
 	PostAuthorInfo,
@@ -15,25 +15,25 @@ import {
 	PostReactions,
 	PostText,
 	ReactionText,
-} from "../Default/DefaultPost.styles";
+} from '../Default/DefaultPost.styles';
 import {
 	SpottedGroupInfo,
 	SpottedGroupLink,
 	SpottedPostAuthorName,
 	SpottedPostCard,
-} from "./SpottedPost.styles";
+} from './SpottedPost.styles';
 
 interface IProps {
 	post: PostType;
 }
 
-const SpottedPost = ({ post }: IProps) => {
+function SpottedPost({ post }: IProps) {
 	const [user] = useAuthState(fireAuth);
 
 	const isLiked = useMemo(() => {
 		if (!user) return false;
 		return post.reactions.likes?.includes(user.uid)!;
-	}, [post.reactions]);
+	}, [post.reactions.likes, user]);
 
 	const handleLike = async () => {
 		if (user) {
@@ -77,6 +77,6 @@ const SpottedPost = ({ post }: IProps) => {
 			</PostReactions>
 		</SpottedPostCard>
 	);
-};
+}
 
 export default SpottedPost;

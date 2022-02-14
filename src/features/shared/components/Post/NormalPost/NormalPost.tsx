@@ -1,5 +1,7 @@
-import PostType from "$features/shared/types/Post.types";
-import { BsHandThumbsUp, BsChatSquareText } from "react-icons/bs";
+import { BsHandThumbsUp, BsChatSquareText } from 'react-icons/bs';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useMemo } from 'react';
+import PostType from '$features/shared/types/Post.types';
 import {
 	PostCard,
 	PostHeader,
@@ -17,24 +19,22 @@ import {
 	ImageWrapper,
 	PostImage,
 	PostText,
-} from "../Default/DefaultPost.styles";
-import getRelativeDate from "$features/shared/utils/getRelativeDate";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { fireAuth } from "$features/shared";
-import { dislikePost, likePost } from "$features/shared/services/Post.service";
-import { useMemo } from "react";
+} from '../Default/DefaultPost.styles';
+import getRelativeDate from '$features/shared/utils/getRelativeDate';
+import { fireAuth } from '$features/shared';
+import { dislikePost, likePost } from '$features/shared/services/Post.service';
 
 interface IProps {
 	post: PostType;
 }
 
-const NormalPost = ({ post }: IProps) => {
+function NormalPost({ post }: IProps) {
 	const [user] = useAuthState(fireAuth);
 
 	const isLiked = useMemo(() => {
 		if (!user) return false;
 		return post.reactions.likes?.includes(user.uid);
-	}, [post.reactions]);
+	}, [post.reactions.likes, user]);
 
 	const handleLike = async () => {
 		if (user) {
@@ -82,6 +82,6 @@ const NormalPost = ({ post }: IProps) => {
 			</PostReactions>
 		</PostCard>
 	);
-};
+}
 
 export default NormalPost;

@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
-import tw from "twin.macro";
+import { motion } from 'framer-motion';
+import tw from 'twin.macro';
 
 export const InfoContainer = tw.div`
     lg:flex flex-col w-72 pt-8 sticky top-0 left-0 z-50 h-screen box-border gap-4 hidden

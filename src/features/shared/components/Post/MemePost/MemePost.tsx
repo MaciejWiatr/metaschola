@@ -1,5 +1,8 @@
-import PostType from "$features/shared/types/Post.types";
-import { BiUpArrow, BiDownArrow } from "react-icons/bi";
+import { BiUpArrow, BiDownArrow } from 'react-icons/bi';
+import { BsChatSquareText } from 'react-icons/bs';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { useMemo } from 'react';
+import PostType from '$features/shared/types/Post.types';
 import {
 	PostHeader,
 	UserImg,
@@ -15,27 +18,29 @@ import {
 	ImageWrapper,
 	PostImage,
 	PostText,
-} from "../Default/DefaultPost.styles";
-import getRelativeDate from "$features/shared/utils/getRelativeDate";
+} from '../Default/DefaultPost.styles';
+import getRelativeDate from '$features/shared/utils/getRelativeDate';
 import {
 	MemeBody,
 	MemeContent,
 	MemePostCard,
 	MemeReaction,
 	MemeReactions,
-} from "./MemePost.styles";
-import { BsChatSquareText } from "react-icons/bs";
-import { useAuthState } from "react-firebase-hooks/auth";
-import { fireAuth } from "$features/shared";
-import { dislikePost, likePost } from "$features/shared/services/Post.service";
-import { useMemo } from "react";
+} from './MemePost.styles';
+import { fireAuth } from '$features/shared';
+import { dislikePost, likePost } from '$features/shared/services/Post.service';
 
 interface IProps {
 	post: PostType;
 }
 
-const MemePost = ({ post }: IProps) => {
+function MemePost({ post }: IProps) {
 	const [user] = useAuthState(fireAuth);
+
+	const isLiked = useMemo(() => {
+		if (!user) return false;
+		return post.reactions.likes?.includes(user.uid);
+	}, [post.reactions.likes, user]);
 
 	const reactionCount = useMemo(() => {
 		let count = 0;
@@ -63,11 +68,11 @@ const MemePost = ({ post }: IProps) => {
 	return (
 		<MemePostCard id={post.id}>
 			<MemeReactions>
-				<MemeReaction onClick={handleUpVote}>
+				<MemeReaction onClick={handleUpVote} active={isLiked}>
 					<BiUpArrow />
 				</MemeReaction>
 				<ReactionText>{reactionCount}</ReactionText>
-				<MemeReaction onClick={handleDownVote}>
+				<MemeReaction onClick={handleDownVote} active={!isLiked}>
 					<BiDownArrow />
 				</MemeReaction>
 			</MemeReactions>
@@ -103,6 +108,6 @@ const MemePost = ({ post }: IProps) => {
 			</MemeBody>
 		</MemePostCard>
 	);
-};
+}
 
 export default MemePost;

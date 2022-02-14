@@ -1,7 +1,17 @@
-import * as React from "react";
-import { fireAuth } from "$features/shared";
-import { useState } from "react";
-import { useAuthState } from "react-firebase-hooks/auth";
+import * as React from 'react';
+import { useState } from 'react';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { Switch, Case } from 'react-if';
+import { useForm } from 'react-hook-form';
+import { useDropArea } from 'react-use';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { addDoc, collection } from 'firebase/firestore';
+import HashLoader from 'react-spinners/HashLoader';
+import { z } from 'zod';
+import { zodResolver } from '@hookform/resolvers/zod';
+import { RiDragDropLine, RiArrowDropDownLine } from 'react-icons/ri';
+import db from '$features/shared/firebase/db';
+import fireStorage from '$features/shared/firebase/storage';
 import {
 	DropZone,
 	Form,
@@ -17,34 +27,24 @@ import {
 	ImagePreview,
 	SelectContainer,
 	SelectIcon,
-} from "./UploadForm.styles";
-import { Switch, Case } from "react-if";
-import { useForm } from "react-hook-form";
-import { useDropArea } from "react-use";
-import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
-import fireStorage from "$features/shared/firebase/storage";
-import { addDoc, collection } from "firebase/firestore";
-import db from "$features/shared/firebase/db";
-import HashLoader from "react-spinners/HashLoader";
-import { z } from "zod";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { RiDragDropLine, RiArrowDropDownLine } from "react-icons/ri";
+} from './UploadForm.styles';
+import { fireAuth } from '$features/shared';
 
 const schema = z.object({
 	text: z.string().max(400),
 	image: z.instanceof(File).optional(),
 });
 
-const UploadForm = () => {
+function UploadForm() {
 	const [user] = useAuthState(fireAuth);
-	const [selectVal, setSelectVal] = useState("mem");
+	const [selectVal, setSelectVal] = useState('mem');
 	const [loading, setLoading] = useState(false);
 	const { register, handleSubmit, setValue, getValues, reset } = useForm({
 		resolver: zodResolver(schema),
 	});
-	const [bond, state] = useDropArea({
+	const [bond] = useDropArea({
 		onFiles: (files: File[]) => {
-			setValue("image", files[0]);
+			setValue('image', files[0]);
 		},
 	});
 
@@ -57,7 +57,7 @@ const UploadForm = () => {
 			const uploadSnap = await uploadBytes(imageRef, image);
 			imageUrl = await getDownloadURL(uploadSnap.ref);
 		}
-		const docRef = await addDoc(collection(db, "posts"), {
+		const docRef = await addDoc(collection(db, 'posts'), {
 			type: selectVal,
 			author: {
 				name: user?.displayName,
@@ -75,7 +75,6 @@ const UploadForm = () => {
 			},
 		});
 
-		console.log("Document written with ID: ", docRef.id);
 		reset();
 		setLoading(false);
 	};
@@ -84,7 +83,7 @@ const UploadForm = () => {
 		<FormContainer>
 			<FormHeader>
 				<FormHeaderName>
-					<FormHeaderImage src={user?.photoURL!}></FormHeaderImage>
+					<FormHeaderImage src={user?.photoURL!} />
 					<div>{user?.displayName}</div>
 				</FormHeaderName>
 				<SelectContainer className="group">
@@ -102,19 +101,17 @@ const UploadForm = () => {
 				</SelectContainer>
 			</FormHeader>
 			<Form
-				onSubmit={handleSubmit(
-					async (data) => await onSubmit(data as any)
-				)}
+				onSubmit={handleSubmit(async (data) => onSubmit(data as any))}
 			>
 				<Switch>
-					<Case condition={selectVal === "mem"}>
+					<Case condition={selectVal === 'mem'}>
 						<FormInput
 							placeholder="Napisz krótki opis"
-							{...register("text")}
+							{...register('text')}
 						/>
 						<DropZone {...bond}>
-							{getValues("image") ? (
-								`Plik "${getValues("image").name}" został
+							{getValues('image') ? (
+								`Plik "${getValues('image').name}" został
 									wybrany`
 							) : (
 								<>
@@ -123,49 +120,49 @@ const UploadForm = () => {
 								</>
 							)}
 						</DropZone>
-						{getValues("image") && (
+						{getValues('image') && (
 							<>
 								<FormLabel>Podgląd:</FormLabel>
 								<ImagePreview
 									src={URL.createObjectURL(
-										getValues("image")
+										getValues('image')
 									)}
 								/>
 							</>
 						)}
 					</Case>
-					<Case condition={selectVal === "announcement"}>
+					<Case condition={selectVal === 'announcement'}>
 						<FormTextArea
 							placeholder="Wpisz tutaj treść ogłoszenia"
-							{...register("text")}
+							{...register('text')}
 						/>
 						<DropZone {...bond}>
-							{getValues("image")
-								? `Plik "${getValues("image").name}" został
+							{getValues('image')
+								? `Plik "${getValues('image').name}" został
 									wybrany`
-								: "Upuść tutaj swój obrazek"}
+								: 'Upuść tutaj swój obrazek'}
 						</DropZone>
-						{getValues("image") && (
+						{getValues('image') && (
 							<>
 								<FormLabel>Podgląd:</FormLabel>
 								<ImagePreview
 									src={URL.createObjectURL(
-										getValues("image")
+										getValues('image')
 									)}
 								/>
 							</>
 						)}
 					</Case>
-					<Case condition={selectVal === "spotted"}>
+					<Case condition={selectVal === 'spotted'}>
 						<FormTextArea
 							placeholder="Napisz coś miłego"
-							{...register("text")}
+							{...register('text')}
 						/>
 					</Case>
 				</Switch>
 				<FormPublishButton type="submit">
 					{!loading ? (
-						"Opublikuj"
+						'Opublikuj'
 					) : (
 						<HashLoader color="#f3f4f6" size={20} />
 					)}
@@ -173,6 +170,6 @@ const UploadForm = () => {
 			</Form>
 		</FormContainer>
 	);
-};
+}
 
 export default UploadForm;

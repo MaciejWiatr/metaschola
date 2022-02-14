@@ -30,6 +30,7 @@ export const RankList = tw(motion.ul)`
     mt-0
     space-y-3
 `;
+
 export const RankItem = tw(motion.li)`
 text-gray-700
 dark:text-gray-300

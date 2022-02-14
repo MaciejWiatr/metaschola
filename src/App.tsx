@@ -6,7 +6,7 @@ import { GlobalStyles } from "twin.macro";
 
 function App() {
 	return (
-		<>
+		<React.StrictMode>
 			<BrowserRouter>
 				<Routes>
 					<Route path="/" element={<HomePage />} />
@@ -14,7 +14,7 @@ function App() {
 				</Routes>
 			</BrowserRouter>
 			<GlobalStyles />
-		</>
+		</React.StrictMode>
 	);
 }
 

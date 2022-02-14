@@ -13,7 +13,7 @@ const PostList = ({ category }: { category?: PostTypeEnum }) => {
 			console.log(category);
 			return query(
 				collection(db, "posts"),
-				where("type", "==", category)
+				where("type", "==", category),
 			);
 		}
 		return query(collection(db, "posts"), orderBy("createdAt", "desc"));

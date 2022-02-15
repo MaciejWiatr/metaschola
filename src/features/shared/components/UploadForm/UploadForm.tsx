@@ -57,7 +57,7 @@ const UploadForm = () => {
 			const uploadSnap = await uploadBytes(imageRef, image);
 			imageUrl = await getDownloadURL(uploadSnap.ref);
 		}
-		const docRef = await addDoc(collection(db, 'posts'), {
+		await addDoc(collection(db, 'posts'), {
 			type: selectVal,
 			author: {
 				name: user?.displayName,
@@ -170,6 +170,6 @@ const UploadForm = () => {
 			</Form>
 		</FormContainer>
 	);
-}
+};
 
 export default UploadForm;

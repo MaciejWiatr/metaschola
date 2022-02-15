@@ -9,21 +9,19 @@ import {
 	LogoWrapper,
 } from './Login.layout.styles';
 
-function LoginLayout({ children }: { children: React.ReactNode }) {
-	return (
-		<LoginContainer>
-			<UndrawImg />
-			<FormWrapper>
-				<LoginHeader>
-					<LogoWrapper>
-						<Logo />
-					</LogoWrapper>
-					<Headline />
-				</LoginHeader>
-				{children}
-			</FormWrapper>
-		</LoginContainer>
-	);
-}
+const LoginLayout = ({ children }: { children: React.ReactNode }) => (
+	<LoginContainer>
+		<UndrawImg />
+		<FormWrapper>
+			<LoginHeader>
+				<LogoWrapper>
+					<Logo />
+				</LogoWrapper>
+				<Headline />
+			</LoginHeader>
+			{children}
+		</FormWrapper>
+	</LoginContainer>
+);
 
 export default LoginLayout;

@@ -25,16 +25,14 @@ const SubHeadLineText = tw.h2`
     w-96
 `;
 
-function Headline() {
-	return (
-		<HeadLineContainer>
-			<HeadLineText>Życie twojej szkoły w jednym miejscu</HeadLineText>
-			<SubHeadLineText>
-				Poznawaj nowych ludzi, wchodź z nimi w interakcje i aktywnie
-				twórz społeczność swojej szkoły!
-			</SubHeadLineText>
-		</HeadLineContainer>
-	);
-}
+const Headline = () => (
+	<HeadLineContainer>
+		<HeadLineText>Życie twojej szkoły w jednym miejscu</HeadLineText>
+		<SubHeadLineText>
+			Poznawaj nowych ludzi, wchodź z nimi w interakcje i aktywnie twórz
+			społeczność swojej szkoły!
+		</SubHeadLineText>
+	</HeadLineContainer>
+);
 
 export default Headline;

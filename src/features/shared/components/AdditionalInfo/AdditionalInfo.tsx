@@ -11,7 +11,7 @@ import {
 	UserRankHeader,
 } from './AdditionalInfo.styles';
 
-function AdditionalInfo() {
+const AdditionalInfo = () => {
 	const { bestStudents } = useBestStudents();
 
 	return (
@@ -36,6 +36,6 @@ function AdditionalInfo() {
 			</UserRank>
 		</InfoContainer>
 	);
-}
+};
 
 export default AdditionalInfo;

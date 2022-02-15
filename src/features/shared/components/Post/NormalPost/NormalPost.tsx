@@ -24,7 +24,7 @@ interface IProps {
 	post: PostType;
 }
 
-function NormalPost({ post }: IProps) {
+const NormalPost = ({ post }: IProps) => {
 	const { handleLike, relativeDate } = usePost(post);
 
 	return (

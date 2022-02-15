@@ -9,8 +9,7 @@ interface IProps {
 	post: PostType;
 }
 
-function Post({ post }: IProps) {
-  return (
+const Post = ({ post }: IProps) => (
     <Switch>
       <Case condition={post.type === 'announcement'}>
         <AnnouncementPost post={post} />
@@ -25,7 +24,6 @@ function Post({ post }: IProps) {
         <NormalPost post={post} />
       </Default>
     </Switch>
-  );
-}
+  )
 
 export default Post;

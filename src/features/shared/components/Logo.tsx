@@ -4,8 +4,7 @@ const StyledPath = tw.path`
 	fill-current
 `;
 
-function Logo() {
-	return (
+const Logo = () => (
 		<svg
 			viewBox="0 0 1978 400"
 			fill="none"
@@ -32,7 +31,6 @@ function Logo() {
 				</linearGradient>
 			</defs>
 		</svg>
-	);
-}
+	)
 
 export default Logo;

@@ -1,12 +1,10 @@
 import LoginForm from '../components/LoginForm';
 import LoginLayout from '../layouts/Login.layout';
 
-function LoginPage() {
-  return (
+const LoginPage = () => (
     <LoginLayout>
       <LoginForm />
     </LoginLayout>
-  );
-}
+  )
 
 export default LoginPage;

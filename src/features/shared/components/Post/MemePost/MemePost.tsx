@@ -30,7 +30,7 @@ interface IProps {
 	post: PostType;
 }
 
-function MemePost({ post }: IProps) {
+const MemePost = ({ post }: IProps) => {
 	const {
 		reactionCount,
 		isLiked,

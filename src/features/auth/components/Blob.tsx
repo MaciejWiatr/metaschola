@@ -11,8 +11,7 @@ const BlobSVG = tw.svg`
     transform
 `;
 
-function Blob() {
-	return (
+const Blob = () => (
 		<BlobWrapper>
 			<BlobSVG xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
 				<path
@@ -21,7 +20,6 @@ function Blob() {
 				/>
 			</BlobSVG>
 		</BlobWrapper>
-	);
-}
+	)
 
 export default Blob;

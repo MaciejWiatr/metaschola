@@ -35,7 +35,7 @@ const schema = z.object({
 	image: z.instanceof(File).optional(),
 });
 
-function UploadForm() {
+const UploadForm = () => {
 	const [user] = useAuthState(fireAuth);
 	const [selectVal, setSelectVal] = useState('mem');
 	const [loading, setLoading] = useState(false);

@@ -20,8 +20,7 @@ interface IProps {
 	post: PostType;
 }
 
-function AnnouncementPost({ post }: IProps) {
-	return (
+const AnnouncementPost = ({ post }: IProps) => (
 		<AnnouncementPostCard id={post.id}>
 			<PostHeader>
 				<Author>
@@ -45,7 +44,6 @@ function AnnouncementPost({ post }: IProps) {
 				)}
 			</AnnouncementContent>
 		</AnnouncementPostCard>
-	);
-}
+	)
 
 export default AnnouncementPost;

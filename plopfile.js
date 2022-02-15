@@ -22,7 +22,7 @@ module.exports = (plop) => {
 			{
 				type: 'add',
 				path: 'src/features/{{domain}}/components/{{properCase name}}/{{properCase name}}.styles.tsx',
-				templateFile: '.plop/templates/Component.styles.hbs',
+				templateFśile: '.plop/templates/Component.styles.hbs',
 			},
 			{
 				type: 'add',

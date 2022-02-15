@@ -7,7 +7,7 @@ import db from '$features/shared/firebase/db';
 import PostType, { PostTypeEnum } from '$features/shared/types/Post.types';
 import Post from '../Post';
 
-function PostList({ category = null }: { category?: PostTypeEnum | null }) {
+const PostList = ({ category = null }: { category?: PostTypeEnum | null }) => {
 	const q = useMemo(() => {
 		if (category) {
 			return query(

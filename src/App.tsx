@@ -4,8 +4,7 @@ import { GlobalStyles } from 'twin.macro';
 import { LoginPage } from '$features/auth';
 import { HomePage } from '$features/home';
 
-function App() {
-  return (
+const App = () => (
     <React.StrictMode>
       <BrowserRouter>
         <Routes>
@@ -15,7 +14,6 @@ function App() {
       </BrowserRouter>
       <GlobalStyles />
     </React.StrictMode>
-  );
-}
+  )
 
 export default App;

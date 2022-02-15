@@ -23,7 +23,7 @@ interface IProps {
 	post: PostType;
 }
 
-function SpottedPost({ post }: IProps) {
+const SpottedPost = ({ post }: IProps) => {
 	const { handleLike, isLiked, relativeDate } = usePost(post);
 
 	return (

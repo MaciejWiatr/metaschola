@@ -32,7 +32,7 @@ import {
 import useDark from '$features/shared/hooks/useDark';
 import auth from '$features/shared/firebase/auth';
 
-function Aside() {
+const Aside = () => {
   const { toggle, isDark } = useDark();
   const [user] = useAuthState(auth);
 

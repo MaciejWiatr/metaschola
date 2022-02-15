@@ -7,8 +7,7 @@ interface IProps {
 	children: React.ReactNode;
 }
 
-function HomeLayout({ children }: IProps) {
-	return (
+const HomeLayout = ({ children }: IProps) => (
 		<BaseLayout>
 			<BaseContainer>
 				<Aside />
@@ -16,7 +15,6 @@ function HomeLayout({ children }: IProps) {
 				<AdditionalInfo />
 			</BaseContainer>
 		</BaseLayout>
-	);
-}
+	)
 
 export default HomeLayout;

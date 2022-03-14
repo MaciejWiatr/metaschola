@@ -46,6 +46,6 @@ const PostList = ({ category = null }: { category?: PostTypeEnum | null }) => {
 			</Else>
 		</If>
 	);
-}
+};
 
 export default PostList;

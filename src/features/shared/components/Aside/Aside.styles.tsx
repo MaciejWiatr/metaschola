@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import tw from 'twin.macro';
 
 export const HomeAside = tw.aside`
@@ -22,7 +23,7 @@ export const ListItem = tw.li`
     text-gray-700 hover:bg-white rounded-full transition-all w-max text-lg dark:hover:bg-gray-700
 `;
 
-export const ListItemLink = tw.a`
+export const ListItemLink = tw(Link)`
    flex items-center no-underline text-gray-700 dark:text-gray-300 p-2 pl-4 pr-4 transition hover:space-x-1 hover:font-semibold
 `;
 
@@ -35,8 +36,8 @@ export const ListItemText = tw.p`
      my-1 transition-all
 `;
 
-export const ListHeader = tw.h3`
-    text-sm font-semibold text-gray-400 my-2`;
+export const ListHeader = tw.p`
+    text-sm font-semibold text-gray-400 my-2 cursor-pointer`;
 
 export const Hr = tw.hr`
     border-b-[0.25px] border-white w-full opacity-20

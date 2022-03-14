@@ -12,3 +12,7 @@ export const BaseLayout = tw.div`
 export const BaseContainer = tw.div`
     mx-auto h-full w-full max-w-6xl flex gap-4
 `;
+
+export const MainContainer = tw.main`
+flex flex-col flex-1 py-8 w-full items-stretch max-w-2xl
+`;

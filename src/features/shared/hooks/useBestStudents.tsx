@@ -4,8 +4,6 @@ import { useCollection } from 'react-firebase-hooks/firestore';
 import db from '../firebase/db';
 import PostType, { EntryAuthor } from '../types/Post.types';
 
-const q = query(collection(db, 'posts'), where('type', '!=', 'spotted'));
-
 interface IStudentRank extends EntryAuthor {
 	posts: number;
 }
@@ -17,6 +15,7 @@ interface IReturnValues {
 }
 
 const useBestStudents = (): IReturnValues => {
+	const q = query(collection(db, 'posts'), where('type', '!=', 'spotted'));
 	const [value, loading, error] = useCollection(q);
 
 	const bestStudents = useMemo(() => {

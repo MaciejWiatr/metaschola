@@ -1,11 +1,3 @@
-import { TeacherRatingListContainer } from "./TeacherRatingList.styles"
-
-const TeacherRatingList = () => {
-    return (
-        <TeacherRatingListContainer>
-            Hello from TeacherRatingList
-        </TeacherRatingListContainer>
-    );
-} 
+const TeacherRatingList = () => <div>Hello from TeacherRatingList</div>;
 
 export default TeacherRatingList;
